@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tricaral S.R.L. — Tripa natural para embutidos</title>
+<link rel="icon" type="image/png" href="favicon.png" />
+<meta name="description" content="Distribuidores mayoristas de tripa natural de cerdo, res y oveja, fresca y aprobada bajo normas FDA. Base en República Dominicana. Caribe, Centroamérica y Norteamérica." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@200;300;400;500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Trade Gothic LH';src:url('fonts/TradeGothicLH-Extended.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Trade Gothic LH';src:url('fonts/TradeGothicLH-ExtendedBold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+:root{
+  --fdisp:'Trade Gothic LH';
+  --ink:#023D2B;        /* brand petrol green */
+  --ink-2:#06281D;      /* darkest band */
+  --teal:#14533F;       /* lifted accent */
+  --paper:#FAF8F2;      /* warm off-white */
+  --paper-2:#F1EDE3;    /* deeper warm */
+  --white:#FFFFFF;
+  --char:#2A2926;       /* soft charcoal body */
+  --muted:#7E8077;      /* captions */
+  --line:rgba(2,61,43,.14);
+  --line-soft:rgba(2,61,43,.08);
+  --maxw:1220px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Hanken Grotesk",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--char);
+  font-weight:400;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.disp{font-family:var(--fdisp),"Saira Condensed",sans-serif;text-transform:uppercase;font-weight:400;line-height:1.0;letter-spacing:-.006em;color:var(--ink)}
+.eyebrow{
+  font-family:"Saira Condensed",sans-serif;text-transform:uppercase;
+  font-weight:400;font-size:.74rem;letter-spacing:.34em;color:var(--ink);
+  display:inline-flex;align-items:center;gap:.7em;
+}
+.eyebrow::before{content:"";width:9px;height:9px;flex:none;
+  background:var(--ink);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.eyebrow.on-dark{color:#CDE0D6}
+.eyebrow.on-dark::before{background:#7FB7A1}
+.muted{color:var(--muted)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:.65em;font-family:"Saira Condensed",sans-serif;
+  text-transform:uppercase;letter-spacing:.18em;font-size:.82rem;font-weight:400;
+  padding:15px 28px;border:1px solid var(--ink);cursor:pointer;background:none;color:var(--ink);
+  transition:background .45s ease,color .45s ease,transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease;border-radius:0}
+.btn:hover{transform:translateY(-2px)}
+.btn .ar{transition:transform .3s ease}
+.btn:hover .ar{transform:translateX(5px)}
+.btn-solid{background:var(--ink);color:var(--paper)}
+.btn-solid:hover{background:var(--teal);border-color:var(--teal);box-shadow:0 16px 32px -16px rgba(2,61,43,.55)}
+.btn-line:hover{background:var(--ink);color:var(--paper);box-shadow:0 16px 32px -18px rgba(2,61,43,.5)}
+.btn-ghost-light{border-color:rgba(255,255,255,.5);color:#fff}
+.btn-ghost-light:hover{background:#fff;color:var(--ink);border-color:#fff;box-shadow:0 16px 34px -16px rgba(0,0,0,.4)}
+.btn-paper{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.btn-paper:hover{background:transparent;color:#fff;border-color:#fff;box-shadow:0 18px 36px -16px rgba(0,0,0,.5)}
+
+/* ---------- nav (overlay sobre el hero) ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;
+  background:linear-gradient(180deg,rgba(2,16,11,.45),rgba(2,16,11,0));
+  transition:background .55s ease,backdrop-filter .55s ease,box-shadow .55s ease}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:22px 40px;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;transition:padding .5s ease}
+.nav-left{justify-self:start}
+.nav-center{justify-self:center}
+.nav-right{justify-self:end;display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;justify-content:center;cursor:pointer}
+.brand img{width:66px;height:66px;object-fit:contain;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.brand:hover img{transform:scale(1.06)}
+.hamb{display:flex;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:6px}
+.hamb span{width:30px;height:1.5px;background:#fff;transition:.35s ease}
+.hamb:hover span:nth-child(1){transform:translateX(3px)}
+.hamb:hover span:nth-child(3){transform:translateX(-3px)}
+.navic{width:42px;height:42px;border:1px solid rgba(255,255,255,.45);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;
+  transition:background .35s ease,color .35s ease,border-color .35s ease,transform .35s ease}
+.navic svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.navic:hover{background:#fff;color:var(--ink);border-color:#fff;transform:translateY(-2px)}
+.nav.scrolled{background:rgba(6,28,21,.85);backdrop-filter:blur(14px);box-shadow:0 12px 30px -22px rgba(0,0,0,.7)}
+.nav.scrolled .nav-inner{padding:13px 40px}
+
+/* ---------- page system ---------- */
+.page{display:none}
+.page.show{display:block;animation:fade .6s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+/* ---------- hero (full-screen, header overlay) ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;height:100vh;height:100svh;
+  display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:62% 30%;filter:saturate(1.05) contrast(1.04) brightness(.97)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(3,20,14,.52) 0%,rgba(3,20,14,0) 18%,rgba(3,20,14,0) 40%,rgba(3,20,14,.58) 72%,rgba(3,20,14,.95) 100%),
+  radial-gradient(120% 90% at 12% 96%,rgba(3,20,14,.7) 0%,rgba(3,20,14,.2) 38%,rgba(3,20,14,0) 70%)}
+.hero-content{position:relative;z-index:2;width:100%;padding-bottom:clamp(64px,11vh,130px)}
+.hero-content .wrap-l{max-width:680px}
+.hero .eyebrow{color:#CFE3D8}
+.hero .eyebrow::before{background:#8FC2AC}
+.hero h1{font-size:clamp(2.4rem,5vw,4.6rem);margin:24px 0 0;color:#fff;text-shadow:0 2px 34px rgba(0,0,0,.4)}
+.hero h1 em{font-style:normal;color:#CFE3D8}
+.hero p.sub{font-size:clamp(1rem,1.25vw,1.16rem);color:rgba(255,255,255,.85);font-weight:300;margin:26px 0 38px;max-width:520px}
+.hero .btns{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.hero-tag{position:absolute;right:40px;bottom:32px;z-index:2;color:rgba(255,255,255,.85);
+  font-family:"Saira Condensed",sans-serif;text-transform:uppercase;letter-spacing:.26em;font-size:.72rem;
+  display:flex;align-items:center;gap:10px;text-shadow:0 1px 14px rgba(0,0,0,.5)}
+.hero-tag::before{content:"";width:30px;height:1px;background:rgba(255,255,255,.7)}
+.scroll-cue{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:2;width:1px;height:50px;
+  background:rgba(255,255,255,.18);overflow:hidden}
+.scroll-cue::after{content:"";position:absolute;top:0;left:0;width:1px;height:18px;background:#fff;
+  animation:cue 2.6s cubic-bezier(.7,0,.3,1) infinite}
+@keyframes cue{0%{transform:translateY(-18px)}55%,100%{transform:translateY(50px)}}
+
+/* ---------- sections ---------- */
+.sec{padding:clamp(58px,8vh,100px) 0}
+.sec-tight{padding:clamp(46px,6vh,78px) 0}
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:44px}
+.head-row h2{font-size:clamp(1.7rem,3.4vw,2.8rem);max-width:14ch}
+.lead-lg{font-size:1.15rem;font-weight:300;color:#403F39;max-width:46ch}
+
+/* empresa split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:center}
+.split.rev{direction:rtl}.split.rev>*{direction:ltr}
+.split h2{font-size:clamp(1.6rem,3vw,2.4rem);margin:22px 0 24px}
+.split p{font-weight:300;color:#46453F;margin-bottom:18px}
+.media-block{position:relative}
+.media-block img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.media-block.tall img{aspect-ratio:3/4}
+.media-frame{position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--line);z-index:-1;transition:inset .6s cubic-bezier(.2,.7,.2,1),border-color .6s ease}
+.media-block:hover .media-frame{inset:12px -12px -12px 12px;border-color:rgba(2,61,43,.42)}
+.badge-float{position:absolute;right:-26px;bottom:-26px;width:148px;height:148px;border-radius:50%;
+  background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 30px 60px -34px rgba(2,61,43,.5);overflow:hidden}
+.badge-float img{width:128px;height:128px;object-fit:contain}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.pillar{padding:46px 36px 50px;border-bottom:1px solid var(--line);position:relative;transition:background .5s ease,transform .55s cubic-bezier(.2,.7,.2,1),box-shadow .55s ease}
+.pillar::before{content:"";position:absolute;left:0;top:-1px;width:0;height:2px;background:var(--ink);transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.pillar:hover::before{width:62px}
+.pillar:not(:last-child){border-right:1px solid var(--line)}
+.pillar:hover{background:var(--white);transform:translateY(-6px);box-shadow:0 32px 56px -30px rgba(2,61,43,.42);z-index:2}
+.pillar .pn{font-family:"Saira Condensed",sans-serif;font-size:.78rem;letter-spacing:.3em;color:var(--teal);
+  display:flex;align-items:center;gap:10px;margin-bottom:26px}
+.pillar .pn .tri{width:12px;height:12px;background:var(--ink);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.pillar h3{font-family:var(--fdisp),"Saira Condensed",sans-serif;text-transform:uppercase;font-weight:700;
+  font-size:1.12rem;letter-spacing:0;color:var(--ink);line-height:1.2;margin-bottom:14px}
+.pillar p{font-weight:300;color:#52514B;font-size:.98rem}
+
+/* product types chips */
+.types{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.chip{font-family:"Saira Condensed",sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.86rem;
+  border:1px solid var(--line);padding:11px 20px;color:var(--ink);transition:background .4s ease,color .4s ease,border-color .4s ease,transform .4s cubic-bezier(.2,.7,.2,1)}
+.chip:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);transform:translateY(-2px)}
+
+/* serve grid */
+.serve{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.serve .cell{padding:34px 24px 40px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;
+  min-height:180px;display:flex;flex-direction:column;justify-content:space-between;transition:background .5s ease,transform .55s cubic-bezier(.2,.7,.2,1),box-shadow .55s ease}
+.serve .cell::before{content:"";position:absolute;left:0;top:-1px;width:0;height:2px;background:var(--ink);transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.serve .cell:hover::before{width:48px}
+.serve .cell:hover{background:var(--white);transform:translateY(-5px);box-shadow:0 26px 46px -28px rgba(2,61,43,.4);z-index:2}
+.serve .cell .sn{font-family:"Saira Condensed",sans-serif;font-size:.74rem;letter-spacing:.26em;color:var(--muted)}
+.serve .cell h4{font-family:var(--fdisp),"Saira Condensed",sans-serif;text-transform:uppercase;font-weight:700;font-size:.92rem;
+  letter-spacing:0;color:var(--ink);line-height:1.22}
+
+/* carousel */
+.carousel{position:relative;overflow:hidden}
+.car-track{display:flex;transition:transform .7s cubic-bezier(.6,.01,.2,1)}
+.slide{min-width:100%;position:relative}
+.slide img{width:100%;height:clamp(360px,62vh,620px);object-fit:cover}
+.slide .cap{position:absolute;left:0;bottom:0;right:0;padding:54px 48px 40px;
+  background:linear-gradient(0deg,rgba(6,40,29,.82),rgba(6,40,29,0));color:#fff}
+.slide .cap .ce{font-family:"Saira Condensed",sans-serif;text-transform:uppercase;letter-spacing:.3em;
+  font-size:.7rem;color:#9DC9B6;margin-bottom:10px}
+.slide .cap h3{font-family:var(--fdisp),"Saira Condensed",sans-serif;text-transform:uppercase;font-weight:400;
+  font-size:clamp(1.25rem,2.5vw,1.95rem);letter-spacing:-.01em;line-height:1.06}
+.car-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:54px;height:54px;border-radius:50%;
+  background:rgba(250,248,242,.16);border:1px solid rgba(255,255,255,.4);color:#fff;cursor:pointer;backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:.3s}
+.car-nav:hover{background:var(--paper);color:var(--ink)}
+.car-nav.prev{left:24px}.car-nav.next{right:24px}
+.car-dots{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:5}
+.car-dots button{width:9px;height:9px;border-radius:50%;border:1px solid #fff;background:transparent;cursor:pointer;padding:0;transition:.3s}
+.car-dots button.on{background:#fff}
+
+/* PAP band */
+.pap{background:var(--ink-2);color:#E9F0EC;position:relative;overflow:hidden}
+.pap .watermark{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:520px;opacity:.05;pointer-events:none}
+.pap .eyebrow{color:#8FC2AC}.pap .eyebrow::before{background:#8FC2AC}
+.pap h2{color:#fff;font-size:clamp(1.8rem,3.6vw,2.9rem);margin:24px 0 0;max-width:16ch}
+.pap .pap-sub{font-weight:300;color:#BCD2C8;max-width:54ch;margin:26px 0 50px;font-size:1.08rem}
+.pap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,.16);margin-bottom:48px}
+.pap-grid .pi{padding:38px 30px 14px;border-right:1px solid rgba(255,255,255,.16)}
+.pap-grid .pi:last-child{border-right:none}
+.pap-grid .pk{font-family:var(--fdisp),"Saira Condensed",sans-serif;text-transform:uppercase;letter-spacing:0;font-weight:700;
+  font-size:1rem;color:#fff;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.pap-grid .pk .tri{width:11px;height:11px;background:#8FC2AC;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.pap-grid .pi p{font-weight:300;color:#A9C4B8;font-size:.96rem}
+.pap-note{font-family:"Saira Condensed",sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:.74rem;color:#8FC2AC;margin-top:26px}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(48px,7vw,110px)}
+.channels{display:flex;flex-direction:column;gap:2px;margin-top:38px;border-top:1px solid var(--line)}
+.channel{display:flex;align-items:center;gap:18px;padding:20px 4px;border-bottom:1px solid var(--line)}
+.channel .ic{width:40px;height:40px;flex:none;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.channel .ic svg{width:18px;height:18px;stroke:var(--ink);fill:none;stroke-width:1.6}
+.channel .cl{font-family:"Saira Condensed",sans-serif;text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;color:var(--muted)}
+.channel .cv{font-size:1.02rem;color:var(--ink);font-weight:500}
+.form{background:var(--white);border:1px solid var(--line);padding:clamp(30px,4vw,52px)}
+.field{margin-bottom:22px}
+.field label{display:block;font-family:"Saira Condensed",sans-serif;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.72rem;color:var(--muted);margin-bottom:9px}
+.field input,.field select,.field textarea{width:100%;border:none;border-bottom:1px solid var(--line);
+  background:transparent;padding:11px 2px;font-family:"Hanken Grotesk",sans-serif;font-size:1rem;color:var(--char);
+  transition:border-color .3s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink)}
+.field textarea{resize:vertical;min-height:84px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+
+/* page header */
+.phead{padding:clamp(126px,18vh,186px) 0 clamp(54px,8vh,84px);background:linear-gradient(165deg,#06281D 0%,#0A3829 58%,#0C402E 100%);position:relative;overflow:hidden}
+.phead .eyebrow{color:#8FC2AC}
+.phead .eyebrow::before{background:#8FC2AC}
+.phead h1{font-size:clamp(2.1rem,4.6vw,3.9rem);margin-top:18px;color:#fff}
+.phead p{max-width:60ch;font-weight:300;color:rgba(255,255,255,.82);margin-top:24px;font-size:1.12rem}
+
+/* product detail */
+.prod{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center;padding:clamp(64px,8vh,110px) 0;border-bottom:1px solid var(--line)}
+.prod.rev{direction:rtl}.prod.rev>*{direction:ltr}
+.prod .ptag{font-family:"Saira Condensed",sans-serif;text-transform:uppercase;letter-spacing:.32em;font-size:.74rem;color:var(--teal)}
+.prod h2{font-size:clamp(1.7rem,3.3vw,2.6rem);margin:16px 0 22px}
+.prod p{font-weight:300;color:#46453F;margin-bottom:22px}
+.spec{border-top:1px solid var(--line);margin-top:8px}
+.spec .sr{display:flex;gap:22px;padding:16px 0;border-bottom:1px solid var(--line)}
+.spec .sk{font-family:"Saira Condensed",sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.74rem;
+  color:var(--muted);min-width:130px;flex:none;padding-top:3px}
+.spec .sv{color:var(--ink);font-weight:500}
+.prod .media-block img{aspect-ratio:4/5}
+
+/* price compare */
+.compare{background:var(--white);border:1px solid var(--line);padding:clamp(36px,5vw,72px);margin-top:8px}
+.compare .big-q{font-family:var(--fdisp),"Saira Condensed",sans-serif;text-transform:uppercase;font-weight:400;
+  font-size:clamp(1.35rem,2.7vw,2rem);line-height:1.16;color:var(--ink);max-width:26ch;letter-spacing:-.01em}
+.compare .pull{font-size:1.12rem;font-weight:300;color:var(--teal);margin:30px 0;border-left:2px solid var(--ink);padding-left:24px}
+.clist{display:grid;gap:0;margin:34px 0 8px;border-top:1px solid var(--line)}
+.clist .ci{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.clist .ci .cnum{font-family:"Saira Condensed",sans-serif;color:var(--teal);font-size:1rem;letter-spacing:.1em;flex:none;width:34px}
+.clist .ci p{font-weight:300;color:#46453F}
+.clist .ci b{color:var(--ink);font-weight:600}
+
+/* cta strip */
+.ctastrip{padding:clamp(70px,9vh,120px) 0;text-align:center;border-top:1px solid var(--line)}
+.ctastrip h2{font-size:clamp(1.7rem,3.4vw,2.7rem);max-width:18ch;margin:18px auto 30px}
+
+/* footer */
+footer{background:var(--ink-2);color:#BCD2C8;padding:80px 0 36px;position:relative}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:54px;border-bottom:1px solid rgba(255,255,255,.14)}
+.foot-brand img{width:108px;margin-bottom:22px}
+.foot-brand .fbt{font-family:"Saira Condensed",sans-serif;text-transform:uppercase;letter-spacing:.4em;color:#fff;font-size:1.1rem}
+.foot-brand p{font-weight:300;color:#9FBBAE;margin-top:16px;max-width:34ch;font-size:.95rem}
+.fcol h5{font-family:"Saira Condensed",sans-serif;text-transform:uppercase;letter-spacing:.24em;font-size:.74rem;color:#7FB7A1;margin-bottom:20px}
+.fcol a,.fcol p{display:block;color:#BCD2C8;font-weight:300;font-size:.95rem;margin-bottom:12px;cursor:pointer;transition:color .25s}
+.fcol a:hover{color:#fff}
+.socials{display:flex;gap:12px;margin-top:6px}
+.socials a{width:40px;height:40px;border:1px solid rgba(255,255,255,.22);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.3s}
+.socials a:hover{background:#fff;border-color:#fff}
+.socials svg{width:17px;height:17px;fill:#BCD2C8;transition:fill .3s}
+.socials a:hover svg{fill:var(--ink-2)}
+.foot-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:28px;
+  font-size:.8rem;color:#7E998C;font-family:"Saira Condensed",sans-serif;letter-spacing:.16em;text-transform:uppercase}
+
+/* modal */
+.modal-ov{position:fixed;inset:0;z-index:100;background:rgba(6,40,29,.55);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s}
+.modal-ov.open{opacity:1;visibility:visible}
+.modal{background:var(--paper);max-width:560px;width:100%;max-height:92vh;overflow:auto;
+  transform:translateY(24px) scale(.985);transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .55s ease;opacity:0;position:relative}
+.modal-ov.open .modal{transform:none;opacity:1}
+.modal .mh{padding:40px 44px 0;position:relative}
+.modal .mb{padding:24px 44px 44px}
+.modal h3{font-size:clamp(1.8rem,3.4vw,2.4rem);margin:14px 0 8px}
+.modal p.msub{font-weight:300;color:#52514B;margin-bottom:8px}
+.mclose{position:absolute;top:-12px;right:0;width:40px;height:40px;border:1px solid var(--line);background:none;
+  cursor:pointer;font-size:1.2rem;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:.3s}
+.mclose:hover{background:var(--ink);color:var(--paper)}
+.mok{display:none;text-align:center;padding:30px 0}
+.mok.show{display:block}
+.mok .tri{width:54px;height:54px;margin:0 auto 18px;background:var(--ink);clip-path:polygon(50% 0,100% 100%,0 100%)}
+
+/* reveal */
+.rev{opacity:0;transform:translateY(30px);transition:opacity 1.05s ease,transform 1.05s cubic-bezier(.2,.7,.2,1)}
+.rev.in{opacity:1;transform:none}
+.rev.d1{transition-delay:.1s}.rev.d2{transition-delay:.2s}.rev.d3{transition-delay:.3s}.rev.d4{transition-delay:.4s}
+
+/* hero load entrance — elegant, one-time */
+@keyframes rise{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:none}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes settle{from{transform:scale(1.08)}to{transform:scale(1)}}
+.hero .wrap-l>*{opacity:0;animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
+.hero .wrap-l>*:nth-child(1){animation-delay:.12s}
+.hero .wrap-l>*:nth-child(2){animation-delay:.28s}
+.hero .wrap-l>*:nth-child(3){animation-delay:.46s}
+.hero .wrap-l>*:nth-child(4){animation-delay:.62s}
+.hero-bg{opacity:0;animation:fadein 1.5s ease both}
+.hero-bg img{animation:settle 2s cubic-bezier(.2,.7,.2,1) both}
+.phead h1,.phead p,.phead .eyebrow{opacity:0;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.phead .eyebrow{animation-delay:.05s}.phead h1{animation-delay:.18s}.phead p{animation-delay:.34s}
+
+/* responsive */
+@media(max-width:1000px){
+  .nav-inner{padding:18px 24px}
+  .nav.scrolled .nav-inner{padding:12px 24px}
+  .hero-content .wrap-l{max-width:100%}
+  .hero-tag{display:none}
+  .split,.contact-grid,.prod{grid-template-columns:1fr;gap:40px}
+  .split.rev{direction:ltr}.prod.rev{direction:ltr}
+  .pillars{grid-template-columns:1fr}
+  .pillar:not(:last-child){border-right:none}
+  .serve{grid-template-columns:1fr 1fr}
+  .pap-grid{grid-template-columns:1fr}
+  .pap-grid .pi{border-right:none;border-bottom:1px solid rgba(255,255,255,.16)}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .badge-float{width:112px;height:112px;right:-12px;bottom:-12px}
+  .badge-float img{width:96px;height:96px}
+}
+@media(max-width:560px){
+  .wrap{padding:0 22px}
+  .nav-inner{padding:16px 20px}
+  .nav.scrolled .nav-inner{padding:11px 20px}
+  .brand img{width:54px;height:54px}
+  .navic{width:38px;height:38px}
+  .hamb span{width:26px}
+  .frow{grid-template-columns:1fr}
+  .serve{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr}
+  .modal .mh,.modal .mb{padding-left:26px;padding-right:26px}
+  .slide .cap{padding:36px 26px 30px}
+  .car-nav{width:44px;height:44px}
+}
+.fullmenu{position:fixed;inset:0;z-index:90;background:linear-gradient(160deg,#06281D,#0A3527);
+  opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s;
+  display:flex;flex-direction:column;justify-content:center;padding:clamp(80px,12vh,120px) clamp(28px,8vw,120px)}
+.fullmenu.open{opacity:1;visibility:visible}
+.fullmenu .fm-close{position:absolute;top:24px;right:30px;width:46px;height:46px;border:1px solid rgba(255,255,255,.4);
+  background:none;color:#fff;font-size:1.25rem;cursor:pointer;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.35s}
+.fullmenu .fm-close:hover{background:#fff;color:var(--ink)}
+.fullmenu .fm-mark{position:absolute;top:26px;left:50%;transform:translateX(-50%);width:46px;opacity:.95}
+.fm-inner{width:100%;max-width:1000px;margin:0 auto}
+.fm-eye{display:inline-flex;margin-bottom:30px}
+.fm-links{display:flex;flex-direction:column;gap:4px}
+.fm-links a{font-family:var(--fdisp),sans-serif;text-transform:uppercase;font-weight:400;
+  font-size:clamp(2rem,6vw,3.9rem);line-height:1.14;color:#fff;letter-spacing:-.01em;cursor:pointer;
+  opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1),color .35s}
+.fullmenu.open .fm-links a{opacity:.6;transform:none}
+.fullmenu.open .fm-links a:hover,.fullmenu.open .fm-links a.active{opacity:1;color:#CFE3D8;transform:translateX(14px)}
+.fullmenu.open .fm-links a:nth-child(1){transition-delay:.10s}
+.fullmenu.open .fm-links a:nth-child(2){transition-delay:.16s}
+.fullmenu.open .fm-links a:nth-child(3){transition-delay:.22s}
+.fullmenu.open .fm-links a:nth-child(4){transition-delay:.28s}
+.fullmenu.open .fm-links a:nth-child(5){transition-delay:.34s}
+.fm-foot{margin-top:44px}
+.fm-meta{margin-top:28px;color:rgba(255,255,255,.5);font-family:"Saira Condensed",sans-serif;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rev{opacity:1;transform:none}.hero .wrap-l>*,.phead h1,.phead p,.phead .eyebrow{opacity:1!important;animation:none!important}.hero-bg,.hero-bg img{opacity:1;transform:none}.scroll-cue::after{animation:none}.fullmenu .fm-links a{opacity:.6;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <button class="hamb" id="hamb" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+    <a class="nav-center brand" data-nav="inicio" aria-label="Tricaral — inicio">
+      <img src="assets/logo-mark-white.png" alt="Tricaral" />
+    </a>
+    <div class="nav-right">
+      <a class="navic" data-nav="inicio" data-anchor="contacto" aria-label="WhatsApp / Teléfono">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <a class="navic" data-nav="inicio" data-anchor="contacto" aria-label="Correo">
+        <svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="1"/><path d="m3 6 9 6.5L21 6"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- mobile menu -->
+<div class="fullmenu" id="fullmenu">
+  <img class="fm-mark" src="assets/logo-mark-white.png" alt="" aria-hidden="true" />
+  <button class="fm-close" id="fmClose" aria-label="Cerrar">✕</button>
+  <div class="fm-inner">
+    <span class="eyebrow on-dark fm-eye">Menú</span>
+    <nav class="fm-links">
+      <a data-nav="inicio">Inicio</a>
+      <a data-nav="acerca">Acerca</a>
+      <a data-nav="productos">Productos</a>
+      <a data-nav="inicio" data-anchor="pap">Programa PAP</a>
+      <a data-nav="inicio" data-anchor="contacto">Contacto</a>
+    </nav>
+    <div class="fm-foot">
+      <button class="btn btn-ghost-light" data-modal="cotizacion">Solicite su cotización <span class="ar">→</span></button>
+    </div>
+    <div class="fm-meta">ventas@tricaral.com &nbsp;·&nbsp; +1 (809) 000 0000 &nbsp;·&nbsp; República Dominicana</div>
+  </div>
+</div>
+
+<!-- ============ PÁGINA: INICIO ============ -->
+<div class="page show" id="page-inicio">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg">
+      <img src="assets/hand-strand.jpg" alt="Tripa natural extruida a mano en planta" />
+    </div>
+    <div class="hero-content">
+      <div class="wrap">
+        <div class="wrap-l">
+          <span class="eyebrow">Distribuidor mayorista · Rep. Dominicana</span>
+          <h1 class="disp">La tripa natural en la que su producción puede <em>confiar</em>.</h1>
+          <p class="sub">Tripas naturales de cerdo, res y oveja, frescas y aprobadas bajo normas FDA.</p>
+          <div class="btns">
+            <button class="btn btn-paper" data-modal="cotizacion">Solicite su cotización <span class="ar">→</span></button>
+            <a class="btn btn-ghost-light" data-nav="inicio" data-anchor="pap">Conozca el PAP</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-tag">Caribe · Centroamérica · Norteamérica</div>
+    <div class="scroll-cue"></div>
+  </header>
+
+  <!-- EMPRESA -->
+  <section class="sec">
+    <div class="wrap split">
+      <div class="rev">
+        <span class="eyebrow">Nuestra empresa</span>
+        <h2 class="disp">Más de una década abasteciendo a la industria.</h2>
+        <p>Tricaral es una empresa familiar fundada en 2015, dedicada a una sola cosa y a hacerla bien: que quien produce embutidos tenga materia prima confiable, disponible y de calidad constante.</p>
+        <p>Esa especialización es la razón por la que fabricantes, marcas y cocinas profesionales, dentro y fuera de la República Dominicana, nos eligen como su proveedor de tripa natural.</p>
+        <div class="btns" style="margin-top:30px">
+          <a class="btn btn-line" data-nav="acerca">Conozca a Tricaral <span class="ar">→</span></a>
+        </div>
+      </div>
+      <div class="rev d2 media-block tall">
+        <img src="assets/coiling-hands.jpg" alt="Madejado y control de calibre en planta" />
+        <span class="media-frame"></span>
+        <span class="badge-float"><img src="assets/badge-10anos.jpg" alt="Más de 10 años en el mercado" /></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRES PILARES -->
+  <section class="sec-tight">
+    <div class="wrap">
+      <div class="head-row rev">
+        <h2 class="disp">Tres pilares, un solo estándar.</h2>
+        <p class="lead-lg">Lo que sostiene cada entrega: el producto, su aprobación y la forma en que usted compra.</p>
+      </div>
+      <div class="pillars rev d1">
+        <div class="pillar">
+          <div class="pn"><span class="tri"></span>Pilar 01</div>
+          <h3>Tripa natural y fresca</h3>
+          <p>De cerdo, res y oveja. La elasticidad, la mordida y el comportamiento al cocinado que solo da la tripa natural.</p>
+        </div>
+        <div class="pillar">
+          <div class="pn"><span class="tri"></span>Pilar 02</div>
+          <h3>Aprobada bajo normas FDA</h3>
+          <p>Producto que cumple con los estándares de aprobación de la FDA. Calidad y estándar sanitario en cada lote.</p>
+        </div>
+        <div class="pillar">
+          <div class="pn"><span class="tri"></span>Pilar 03</div>
+          <h3>Mayorista, al detalle y por contrato</h3>
+          <p>Desde el pedido puntual hasta la compra programada del PAP. Usted elige el ritmo; nosotros respondemos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS PREVIEW -->
+  <section class="sec">
+    <div class="wrap split rev">
+      <div class="rev media-block">
+        <img src="assets/chorizo-board.jpg" alt="Embutidos elaborados con tripa natural" />
+        <span class="media-frame"></span>
+      </div>
+      <div class="rev d2">
+        <span class="eyebrow">Tripas para</span>
+        <h2 class="disp">Una tripa para cada embutido.</h2>
+        <p>Longaniza, chorizo, salchicha tipo frankfurter y hotdog, bratwurst, salchicha italiana, y todo embutido que exija tripa natural. Si usted lo produce, nosotros tenemos el calibre.</p>
+        <div class="types">
+          <span class="chip">Longaniza</span>
+          <span class="chip">Chorizo</span>
+          <span class="chip">Frankfurter</span>
+          <span class="chip">Hotdog</span>
+          <span class="chip">Bratwurst</span>
+          <span class="chip">Salchicha italiana</span>
+        </div>
+        <div class="btns" style="margin-top:34px">
+          <a class="btn btn-line" data-nav="productos">Ver nuestros productos <span class="ar">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A QUIÉN SERVIMOS -->
+  <section class="sec-tight">
+    <div class="wrap">
+      <div class="head-row rev">
+        <h2 class="disp">Pensado para cada etapa de su producción.</h2>
+        <p class="lead-lg">Si su negocio es transformar tripa natural en producto terminado, somos el eslabón de suministro en el que puede apoyarse.</p>
+      </div>
+      <div class="serve rev d1">
+        <div class="cell"><span class="sn">01</span><h4>Fabricantes de embutidos</h4></div>
+        <div class="cell"><span class="sn">02</span><h4>Marca propia · Private label</h4></div>
+        <div class="cell"><span class="sn">03</span><h4>Hoteles</h4></div>
+        <div class="cell"><span class="sn">04</span><h4>Cruceros</h4></div>
+        <div class="cell"><span class="sn">05</span><h4>Operaciones de alimentación</h4></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARRUSEL EN PLANTA -->
+  <section class="sec-tight">
+    <div class="wrap" style="margin-bottom:42px">
+      <span class="eyebrow rev">En planta</span>
+      <h2 class="disp rev" style="font-size:clamp(1.6rem,3vw,2.4rem);margin-top:18px;max-width:18ch">Del recibo a la línea de producción.</h2>
+    </div>
+    <div class="carousel rev d1" id="carousel">
+      <div class="car-track" id="carTrack">
+        <div class="slide"><img src="assets/barrel-brine.jpg" alt="Tripa conservada en salmuera"><div class="cap"><div class="ce">Conservación</div><h3>Frescura mantenida en salmuera</h3></div></div>
+        <div class="slide"><img src="assets/coiling-hands.jpg" alt="Madejado y control de calibre"><div class="cap"><div class="ce">Calibrado</div><h3>Control de calibre, lote a lote</h3></div></div>
+        <div class="slide"><img src="assets/coils-grid.jpg" alt="Selección y clasificación de tripa"><div class="cap"><div class="ce">Clasificación</div><h3>Selección por tipo y calibre</h3></div></div>
+        <div class="slide"><img src="assets/spiral-plate.jpg" alt="Producto listo para producción"><div class="cap"><div class="ce">Listo para producir</div><h3>La consistencia que su línea necesita</h3></div></div>
+      </div>
+      <button class="car-nav prev" id="carPrev" aria-label="Anterior">‹</button>
+      <button class="car-nav next" id="carNext" aria-label="Siguiente">›</button>
+      <div class="car-dots" id="carDots"></div>
+    </div>
+  </section>
+
+  <!-- PAP -->
+  <section class="pap sec" id="pap">
+    <img class="watermark" src="assets/logo-white.png" alt="" aria-hidden="true" />
+    <div class="wrap" style="position:relative;z-index:2">
+      <span class="eyebrow on-dark rev">Exclusivo · Plan de Abastecimiento Programado</span>
+      <h2 class="disp rev d1">Más control. Más descuento. La misma calidad de siempre.</h2>
+      <p class="pap-sub rev d1">El PAP es compra programada. Usted proyecta su consumo de tripa para los próximos meses y toma el control de las dos cosas que hoy dependen del mercado: su precio y su abastecimiento.</p>
+      <div class="pap-grid rev d2">
+        <div class="pi"><div class="pk"><span class="tri"></span>Paga menos</div><p>Descuento PAP sobre el precio puntual, fijado por contrato.</p></div>
+        <div class="pi"><div class="pk"><span class="tri"></span>Nunca le falta</div><p>Producto fresco reservado para su operación durante toda la vigencia.</p></div>
+        <div class="pi"><div class="pk"><span class="tri"></span>No cambia nada más</div><p>Mismo producto, misma calidad, misma entrega.</p></div>
+      </div>
+      <div class="rev d3">
+        <button class="btn btn-ghost-light" data-modal="pap">Reciba su aplicación al PAP <span class="ar">→</span></button>
+        <div class="pap-note">Cupos limitados</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="sec" id="contacto">
+    <div class="wrap contact-grid">
+      <div class="rev">
+        <span class="eyebrow">Contacto</span>
+        <h2 class="disp" style="font-size:clamp(1.7rem,3.2vw,2.6rem);margin:22px 0 22px">Hablemos de su volumen.</h2>
+        <p class="lead-lg" style="font-size:1.08rem">Cuéntenos qué produce y en qué cantidades. Le preparamos una cotización a su medida.</p>
+        <div class="channels">
+          <div class="channel"><div class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="cl">Teléfono · WhatsApp</div><div class="cv">+1 (809) 000 0000</div></div></div>
+          <div class="channel"><div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="1"/><path d="m2 6 10 7L22 6"/></svg></div><div><div class="cl">Correo</div><div class="cv">ventas@tricaral.com</div></div></div>
+          <div class="channel"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="cl">Ubicación</div><div class="cv">República Dominicana</div></div></div>
+        </div>
+      </div>
+      <div class="rev d2">
+        <form class="form" id="contactForm" novalidate>
+          <div class="frow">
+            <div class="field"><label>Nombre</label><input name="nombre" required placeholder="Su nombre" /></div>
+            <div class="field"><label>Empresa</label><input name="empresa" placeholder="Su empresa" /></div>
+          </div>
+          <div class="frow">
+            <div class="field"><label>Correo</label><input name="email" type="email" required placeholder="correo@empresa.com" /></div>
+            <div class="field"><label>Teléfono</label><input name="tel" placeholder="+1 (809) 000 0000" /></div>
+          </div>
+          <div class="frow">
+            <div class="field"><label>Producto</label>
+              <select name="producto"><option>Tripa de cerdo</option><option>Tripa de oveja</option><option>Tripa de res</option><option>Aún no estoy seguro</option></select></div>
+            <div class="field"><label>Volumen estimado</label><input name="volumen" placeholder="Ej. madejas / mes" /></div>
+          </div>
+          <div class="field"><label>¿Qué produce?</label><textarea name="msg" placeholder="Cuéntenos sobre su operación"></textarea></div>
+          <button class="btn btn-solid" type="submit" style="width:100%;justify-content:center">Solicitar cotización <span class="ar">→</span></button>
+          <div class="mok" id="formOk"><div class="tri"></div><p style="color:var(--ink);font-weight:500">Gracias. Le responderemos a la brevedad.</p></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PÁGINA: ACERCA ============ -->
+<div class="page" id="page-acerca">
+  <header class="phead">
+    <div class="wrap">
+      <span class="eyebrow">Acerca de Tricaral</span>
+      <h1 class="disp">Calidad natural para cada embutido.</h1>
+      <p>Distribuidor mayorista de tripa natural para la elaboración de longaniza, chorizo, salchicha italiana, hotdog, bratwurst y todo tipo de embutido.</p>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="wrap split">
+      <div class="rev">
+        <span class="eyebrow">Nuestra misión</span>
+        <h2 class="disp" style="font-size:clamp(1.6rem,3vw,2.4rem);margin:22px 0 24px">El sabor tradicional, preservado.</h2>
+        <p>Nuestro compromiso es entregar tripa de la mejor calidad a los productores, preservando la autenticidad, la textura y el sabor del embutido tradicional.</p>
+        <p>Cada cliente tiene una necesidad distinta, y nuestro equipo trabaja para responder a la suya con un servicio a la altura.</p>
+      </div>
+      <div class="rev d2 media-block">
+        <img src="assets/barrel-brand.jpg" alt="Producto Tricaral conservado en barril" />
+        <span class="media-frame"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-tight">
+    <div class="wrap split rev">
+      <div class="rev media-block tall">
+        <img src="assets/barrel-brine.jpg" alt="Tripa natural conservada en planta Tricaral" />
+        <span class="media-frame"></span>
+      </div>
+      <div class="rev d2">
+        <span class="eyebrow">La diferencia Tricaral</span>
+        <h2 class="disp" style="font-size:clamp(1.6rem,3vw,2.4rem);margin:22px 0 24px">Socios de largo plazo, no clientes de una sola compra.</h2>
+        <p>Empezamos en 2015 respondiendo a una necesidad concreta de la industria dominicana: una fuente de tripa natural en la que se pudiera confiar, lote tras lote.</p>
+        <p>De ahí en adelante construimos lo que hoy somos, una empresa familiar reconocida por su seriedad. Lo que nos distingue no es solo el producto: es la confiabilidad, la integridad y el conocimiento profundo de la industria que ponemos en cada relación.</p>
+        <p style="color:var(--ink);font-weight:500;font-size:1.12rem">No buscamos clientes de una sola compra; construimos socios de largo plazo. Esa es la diferencia Tricaral.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ctastrip">
+    <div class="wrap">
+      <span class="eyebrow rev">Trabajemos juntos</span>
+      <h2 class="disp rev d1">Cuéntenos qué produce. Nosotros tenemos el calibre.</h2>
+      <div class="rev d2"><button class="btn btn-solid" data-modal="cotizacion">Solicite su cotización <span class="ar">→</span></button></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PÁGINA: PRODUCTOS ============ -->
+<div class="page" id="page-productos">
+  <header class="phead">
+    <div class="wrap">
+      <span class="eyebrow">Nuestros productos</span>
+      <h1 class="disp">Tripas naturales.</h1>
+      <p>Tripa natural fresca, aprobada bajo normas FDA, en los calibres y presentaciones que su producción necesita. La consistencia que su línea requiere para rendir sin sorpresas, lote tras lote.</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <!-- CERDO -->
+    <section class="prod" id="cerdo">
+      <div class="rev">
+        <span class="ptag">Cerdo</span>
+        <h2 class="disp">Tripa natural de cerdo</h2>
+        <p>Tripa de origen rastreable. El origen del animal y su alimentación marcan la diferencia en la calidad y la seguridad del producto final, y por eso los controlamos. Excelente para producir todo tipo de embutido y salchicha.</p>
+        <div class="spec">
+          <div class="sr"><div class="sk">Presentaciones</div><div class="sv">Cortada con cuchillo, invertida, afeitada, entubada o sin entubar</div></div>
+          <div class="sr"><div class="sk">Calibres (mm)</div><div class="sv">26/28 · 28/30 · 30/32 · 32/34 · 34/36 · 38/40</div></div>
+        </div>
+      </div>
+      <div class="rev d2 media-block">
+        <img src="assets/casing-pile.webp" alt="Tripa natural de cerdo" />
+        <span class="media-frame"></span>
+      </div>
+    </section>
+
+    <!-- OVEJA -->
+    <section class="prod rev" id="oveja">
+      <div class="rev media-block">
+        <img src="assets/casing-bundle.webp" alt="Tripa natural de oveja en madeja" />
+        <span class="media-frame"></span>
+      </div>
+      <div class="rev d2">
+        <span class="ptag">Oveja</span>
+        <h2 class="disp">Tripa natural de oveja</h2>
+        <p>Ideal para embutidos de calibre fino. Presentación tradicional en madeja.</p>
+        <div class="spec">
+          <div class="sr"><div class="sk">Madeja</div><div class="sv">El paquete tradicional era de 100 yardas (91 m). Hoy la mayoría mide entre 95 y 100 yardas (aprox. 88 m).</div></div>
+          <div class="sr"><div class="sk">Conservación</div><div class="sv">Cubra la tripa no utilizada en salmuera o sal granulada y almacénela refrigerada a 4 °C o menos. No la congele.</div></div>
+          <div class="sr"><div class="sk">Si presenta olor</div><div class="sv">Por lo general basta con airearla. Si es necesario, enjuáguela en agua dulce y vuelva a remojarla en salmuera; el olor se disipa.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RES -->
+    <section class="prod" id="res">
+      <div class="rev">
+        <span class="ptag">Res</span>
+        <h2 class="disp">Tripa natural de res</h2>
+        <p>Para embutidos de mayor calibre, con la resistencia y el rendimiento que exige la producción a escala.</p>
+        <div class="spec">
+          <div class="sr"><div class="sk">Aplicación</div><div class="sv">Embutidos de gran formato y alto rendimiento</div></div>
+          <div class="sr"><div class="sk">Carácter</div><div class="sv">Resistencia y comportamiento estable en la línea</div></div>
+        </div>
+      </div>
+      <div class="rev d2 media-block">
+        <img src="assets/raw-coil.jpg" alt="Embutido de res en tripa natural" />
+        <span class="media-frame"></span>
+      </div>
+    </section>
+  </div>
+
+  <!-- PRECIO -->
+  <section class="sec" id="precio">
+    <div class="wrap">
+      <span class="eyebrow rev">Por qué el precio cambia entre distribuidores</span>
+      <h2 class="disp rev d1" style="font-size:clamp(1.65rem,3.3vw,2.7rem);margin:20px 0 40px;max-width:22ch">¿Por qué un proveedor cuesta menos que otro? Casi nunca es lo que parece.</h2>
+      <div class="compare rev d1">
+        <p class="big-q">Una tripa más barata puede rendir menos salchicha por unidad, traer menos metros por madeja, o fallar en calibre y resistencia justo en plena producción.</p>
+        <p class="pull">El verdadero precio de una tripa no está en la factura. Está en cuánto produce usted con ella.</p>
+        <div class="clist">
+          <div class="ci"><span class="cnum">01</span><p><b>Mida cuánta salchicha rinde cada unidad de tripa.</b> Ese es su costo real.</p></div>
+          <div class="ci"><span class="cnum">02</span><p><b>Cuente las unidades que recibe</b> y contrástelas con lo facturado.</p></div>
+          <div class="ci"><span class="cnum">03</span><p><b>Revise calibre, resistencia y limpieza,</b> los detalles que se notan en la línea, no en el papel.</p></div>
+        </div>
+        <p style="font-weight:300;color:#46453F;margin-top:26px;font-size:1.08rem">En Tricaral no le pedimos que confíe. Le pedimos que compare. Cuando lo hace con números, la decisión suele ser nuestra.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ctastrip">
+    <div class="wrap">
+      <span class="eyebrow rev">El siguiente paso</span>
+      <h2 class="disp rev d1">Compárenos con números. La decisión suele ser nuestra.</h2>
+      <div class="rev d2"><button class="btn btn-solid" data-modal="cotizacion">Solicite su cotización <span class="ar">→</span></button></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo-white.png" alt="Tricaral" />
+        <div class="fbt">Tricaral S.R.L.</div>
+        <p>Distribuidores de tripa natural de cerdo, res y oveja, frescas y aprobadas bajo normas FDA. Base en República Dominicana — Caribe, Centroamérica y Norteamérica.</p>
+      </div>
+      <div class="fcol">
+        <h5>Navegación</h5>
+        <a data-nav="inicio">Inicio</a>
+        <a data-nav="acerca">Acerca</a>
+        <a data-nav="productos">Productos</a>
+        <a data-nav="inicio" data-anchor="contacto">Contacto</a>
+      </div>
+      <div class="fcol">
+        <h5>Productos</h5>
+        <a data-nav="productos" data-anchor="cerdo">Tripa de cerdo</a>
+        <a data-nav="productos" data-anchor="oveja">Tripa de oveja</a>
+        <a data-nav="productos" data-anchor="res">Tripa de res</a>
+        <a data-nav="inicio" data-anchor="pap">Programa PAP</a>
+      </div>
+      <div class="fcol">
+        <h5>Contacto</h5>
+        <p>ventas@tricaral.com</p>
+        <p>+1 (809) 000 0000</p>
+        <p>República Dominicana</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.2 1 .47 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.2.6-.47 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.2-1-.47-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.2-.6.47-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.07-1.1.05-1.7.24-2.1.4-.5.2-.9.43-1.3.83-.4.4-.63.8-.83 1.3-.16.4-.35 1-.4 2.1C2.6 9.9 2.6 10.3 2.6 12s0 2.1.07 3.3c.05 1.1.24 1.7.4 2.1.2.5.43.9.83 1.3.4.4.8.63 1.3.83.4.16 1 .35 2.1.4 1.2.07 1.6.07 4.7.07s3.5 0 4.7-.07c1.1-.05 1.7-.24 2.1-.4.5-.2.9-.43 1.3-.83.4-.4.63-.8.83-1.3.16-.4.35-1 .4-2.1.07-1.2.07-1.6.07-3.3s0-2.1-.07-3.3c-.05-1.1-.24-1.7-.4-2.1-.2-.5-.43-.9-.83-1.3-.4-.4-.8-.63-1.3-.83-.4-.16-1-.35-2.1-.4-1.2-.07-1.6-.07-4.7-.07zm0 3.06A4.94 4.94 0 1 1 7.06 12 4.94 4.94 0 0 1 12 7.06zm0 8.14A3.2 3.2 0 1 0 8.8 12 3.2 3.2 0 0 0 12 15.2zm6.3-8.34a1.15 1.15 0 1 1-1.15-1.15 1.15 1.15 0 0 1 1.15 1.15z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.95 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35zM12 2a10 10 0 0 0-8.5 15.27L2 22l4.85-1.27A10 10 0 1 0 12 2zm0 18.2a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-2.88.76.77-2.8-.2-.31A8.2 8.2 0 1 1 12 20.2z"/></svg></a>
+          <a href="#" aria-label="Correo"><svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5L12 11.2 19.8 6H4.2zM20 7.4l-8 5.3-8-5.3V18h16V7.4z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2025 Tricaral S.R.L. — Más de 10 años en el mercado</span>
+      <span>Tripa natural · Aprobada bajo normas FDA</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODAL ============ -->
+<div class="modal-ov" id="modal">
+  <div class="modal">
+    <div class="mh">
+      <button class="mclose" id="modalClose" aria-label="Cerrar">✕</button>
+      <span class="eyebrow" id="modalEyebrow">Cotización</span>
+      <h3 class="disp" id="modalTitle">Solicite su cotización</h3>
+      <p class="msub" id="modalSub">Cuéntenos qué produce y en qué cantidades. Le preparamos una cotización a su medida.</p>
+    </div>
+    <div class="mb">
+      <form id="modalForm" novalidate>
+        <div class="frow">
+          <div class="field"><label>Nombre</label><input name="nombre" required placeholder="Su nombre" /></div>
+          <div class="field"><label>Empresa</label><input name="empresa" placeholder="Su empresa" /></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label>Correo</label><input name="email" type="email" required placeholder="correo@empresa.com" /></div>
+          <div class="field"><label>Teléfono · WhatsApp</label><input name="tel" placeholder="+1 (809) 000 0000" /></div>
+        </div>
+        <div class="field"><label>Volumen estimado / mensaje</label><textarea name="msg" placeholder="Ej. tipo de tripa, calibre y volumen mensual"></textarea></div>
+        <button class="btn btn-solid" type="submit" style="width:100%;justify-content:center" id="modalSubmit">Enviar solicitud <span class="ar">→</span></button>
+      </form>
+      <div class="mok" id="modalOk"><div class="tri"></div><p style="color:var(--ink);font-weight:500">Gracias. Le contactaremos a la brevedad.</p></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var nav=document.getElementById('nav');
+  var pages={inicio:document.getElementById('page-inicio'),acerca:document.getElementById('page-acerca'),productos:document.getElementById('page-productos')};
+
+  /* ---- page routing ---- */
+  function setActive(name){
+    document.querySelectorAll('.fm-links a').forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('data-nav')===name && !a.getAttribute('data-anchor'));
+    });
+  }
+  function showPage(name,anchor){
+    Object.keys(pages).forEach(function(k){pages[k].classList.toggle('show',k===name);});
+    setActive(name);
+    // hero only on inicio -> invert nav at top
+    updateNav();
+    if(anchor){
+      requestAnimationFrame(function(){
+        var el=document.getElementById(anchor);
+        if(el){var y=el.getBoundingClientRect().top+window.pageYOffset-70;window.scrollTo({top:y,behavior:'smooth'});}
+      });
+    }else{window.scrollTo({top:0,behavior:'auto'});}
+    revealScan();
+  }
+  document.body.addEventListener('click',function(e){
+    var t=e.target.closest('[data-nav]');
+    if(!t)return;
+    e.preventDefault();
+    showPage(t.getAttribute('data-nav'),t.getAttribute('data-anchor'));
+    closeMobile();
+  });
+
+  /* ---- nav scroll state ---- */
+  function updateNav(){
+    nav.classList.toggle('scrolled', window.pageYOffset>40);
+  }
+  window.addEventListener('scroll',updateNav,{passive:true});
+
+  /* ---- full-screen menu ---- */
+  var fm=document.getElementById('fullmenu');
+  function closeMobile(){fm.classList.remove('open');document.body.style.overflow='';}
+  function openMenu(){fm.classList.add('open');document.body.style.overflow='hidden';}
+  document.getElementById('hamb').addEventListener('click',openMenu);
+  document.getElementById('fmClose').addEventListener('click',closeMobile);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMobile();});
+
+  /* ---- modal ---- */
+  var modal=document.getElementById('modal');
+  var mTitle=document.getElementById('modalTitle'),mSub=document.getElementById('modalSub'),mEye=document.getElementById('modalEyebrow');
+  var mForm=document.getElementById('modalForm'),mOk=document.getElementById('modalOk'),mSubmit=document.getElementById('modalSubmit');
+  var content={
+    cotizacion:{eye:'Cotización',title:'Solicite su cotización',sub:'Cuéntenos qué produce y en qué cantidades. Le preparamos una cotización a su medida.'},
+    pap:{eye:'Programa PAP · Cupos limitados',title:'Reciba su aplicación al PAP',sub:'Proyecte su consumo y asegure precio y abastecimiento por contrato. Le enviamos su aplicación.'}
+  };
+  function openModal(kind){
+    var c=content[kind]||content.cotizacion;
+    mEye.textContent=c.eye;mTitle.textContent=c.title;mSub.textContent=c.sub;
+    mForm.style.display='block';mOk.classList.remove('show');mForm.reset();
+    modal.classList.add('open');document.body.style.overflow='hidden';
+  }
+  function closeModal(){modal.classList.remove('open');document.body.style.overflow='';}
+  document.body.addEventListener('click',function(e){
+    var t=e.target.closest('[data-modal]');if(!t)return;e.preventDefault();openModal(t.getAttribute('data-modal'));
+  });
+  document.getElementById('modalClose').addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+  mForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!mForm.querySelector('[name=nombre]').value||!mForm.querySelector('[name=email]').value){return;}
+    mForm.style.display='none';mOk.classList.add('show');
+  });
+
+  /* ---- contact form ---- */
+  var cForm=document.getElementById('contactForm'),fOk=document.getElementById('formOk');
+  cForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!cForm.querySelector('[name=nombre]').value||!cForm.querySelector('[name=email]').value){return;}
+    Array.prototype.forEach.call(cForm.querySelectorAll('input,select,textarea,button'),function(el){el.style.display='none';});
+    fOk.classList.add('show');
+  });
+
+  /* ---- carousel ---- */
+  var track=document.getElementById('carTrack'),dotsWrap=document.getElementById('carDots');
+  var slides=track?track.children.length:0,idx=0,timer=null;
+  if(slides){
+    for(var i=0;i<slides;i++){(function(i){
+      var b=document.createElement('button');if(i===0)b.classList.add('on');
+      b.addEventListener('click',function(){go(i);});dotsWrap.appendChild(b);
+    })(i);}
+    function render(){
+      track.style.transform='translateX(-'+(idx*100)+'%)';
+      Array.prototype.forEach.call(dotsWrap.children,function(d,i){d.classList.toggle('on',i===idx);});
+    }
+    function go(n){idx=(n+slides)%slides;render();restart();}
+    function next(){go(idx+1);}function prev(){go(idx-1);}
+    function restart(){if(timer)clearInterval(timer);timer=setInterval(next,5500);}
+    document.getElementById('carNext').addEventListener('click',next);
+    document.getElementById('carPrev').addEventListener('click',prev);
+    var car=document.getElementById('carousel');
+    car.addEventListener('mouseenter',function(){if(timer)clearInterval(timer);});
+    car.addEventListener('mouseleave',restart);
+    restart();
+  }
+
+  /* ---- reveal on scroll ---- */
+  var io=null;
+  if('IntersectionObserver'in window){
+    io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  }
+  function revealScan(){
+    document.querySelectorAll('.page.show .rev:not(.in)').forEach(function(el){
+      if(io){
+        var r=el.getBoundingClientRect();
+        if(r.top<window.innerHeight*0.95){el.classList.add('in');}else{io.observe(el);}
+      }else{el.classList.add('in');}
+    });
+  }
+  updateNav();revealScan();
+})();
+</script>
+</body>
+</html>
